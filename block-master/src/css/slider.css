@@ -1,0 +1,66 @@
+.alice-carousel__wrapper {
+	border-radius: .5rem;
+}
+
+.alice-carousel__stage-item * {
+	width: 100%;
+}
+
+.alice-carousel__dots-item {
+	width: 12px !important;
+	height: 12px !important;
+	background: var(--grey);
+
+	/* Inside auto layout */
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	border: 1px solid transparent;
+}
+.alice-carousel__dots-item.__active {
+	background: var(--white) !important;
+	border: 1px solid var(--primary);
+}
+
+.slider-actions-container {
+	width: 100%;
+	height: calc(100% - 61px);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.slider-actions-container .content {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	height: 100%;
+	padding: 1.5rem 2rem;
+	gap: 1rem;
+}
+.slider-actions-container .content > * {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: .5rem;
+	padding: .3rem 1.5rem;
+	border-radius: 4px;
+	font: var(--headline5);
+	cursor: pointer;
+}
+.slider-actions-container .content > * svg {
+	filter: var(--black-filter);
+	display: flex;
+	align-items: center;
+}
+.whatch-now {
+	color: var(--black);
+	background-color: var(--primary);
+}
+.whatch-later {
+	color: var(--primary);
+	border: 1px solid var(--primary);
+	background-color: var(--black);
+}
+.whatch-later svg {
+	filter: var(--primary-filter) !important;
+}
