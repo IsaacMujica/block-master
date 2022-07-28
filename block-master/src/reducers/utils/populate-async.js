@@ -2,6 +2,8 @@ import localStore from '../../services/localstorage'
 import {
   configuration,
   discover,
+  genres,
+  movies,
   search
 } from '../../services/api/themoviedb/index'
 import {
@@ -13,6 +15,8 @@ import {
 const API = {
   configuration,
   discover,
+  genres,
+  movies,
   search
 }
 
@@ -21,41 +25,64 @@ async function populate_async(APICall, method = configurationMethods.getConfigur
   return await response(method)
 }
 
-function builNewLocalStorage({ newStore, result, api, apiMethod }) {
+function buildNewLocalStorage({ newStore, result, api, apiMethod, localStoreIndex, props }) {
   if (result?.success === undefined) {
     result.tmdb_from = {
       [api]: apiMethod
     }
-    result.title = apiFilterTitle?.[api]?.[apiMethod]
+    result.local_filter_title = props?.local_filter_title ?? apiFilterTitle?.[api]?.[apiMethod]
+    result.tmdb_props = {...props}
     newStore.setExpiryTime(defaultParams.refresh_date.short)
-    newStore.set(result)
-    return result
+    let setResult = {}
+    if (newStore.get() !== undefined)
+      setResult = {...newStore.get()}
+    if (localStoreIndex !== undefined)
+      setResult[localStoreIndex] = {...result}
+    else
+      setResult = {
+        ...setResult,
+        ...result
+      }
+
+    newStore.set(setResult)
   }
+  return result
 }
 
-export async function getLanguage() {
-  let language = await window.navigator.language
-  return language
-}
-
-export default async function populate(localStoreName, api = 'configuration', apiMethod = configurationMethods.getConfiguration, props = {}) {
+export default async function populate(populate_props) {
+  const {
+    localStoreName,
+    api             = 'configuration',
+    apiMethod       = configurationMethods.getConfiguration,
+    localStoreIndex = undefined,
+    props           = {}
+  } = {...populate_props}
   // Getting the localStorage
   let newStore = localStore(localStoreName)
   // Validation if the localStorage does not exist
   if (newStore.get() === undefined)
     return await populate_async(API[api], apiMethod, props).then(
-      result => builNewLocalStorage({ newStore, result, api, apiMethod })
+      result => buildNewLocalStorage({ newStore, result, api, apiMethod, localStoreIndex, props })
     )
   // Validation if the current localStorage is the same as requested
   const validate_last_request = newStore.get().tmdb_from?.[api]
   if (validate_last_request === undefined || validate_last_request !== apiMethod)
-    return await populate_replace(localStoreName, api, apiMethod, props).then(result => result)
+    return await populate_replace({ localStoreName, api, apiMethod, localStoreIndex, props }).then(result => result)
+
   return await newStore.get()
 }
 
-export async function populate_replace(localStoreName, api = 'configuration', apiMethod = configurationMethods.getConfiguration, props = {}) {
+export async function populate_replace(populate_props) {
+  const {
+    localStoreName,
+    api             = 'configuration',
+    apiMethod       = configurationMethods.getConfiguration,
+    localStoreIndex = undefined,
+    props           = {}
+  } = {...populate_props}
+  // Getting the localStorage
   let newStore = localStore(localStoreName)
   return await populate_async(API[api], apiMethod, props).then(
-    result => builNewLocalStorage({ newStore, result, api, apiMethod })
+    result => buildNewLocalStorage({ newStore, result, api, apiMethod, localStoreIndex, props })
   )
 }

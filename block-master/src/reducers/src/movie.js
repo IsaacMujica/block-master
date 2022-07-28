@@ -1,51 +1,63 @@
-import { ADD_MOVIES, REMOVE_MOVIES, SET_FILTER, SEARCH_MOVIE } from '../../actions/reducer/movie'
-
-/*import populate_initialState, { getLanguage } from '../utils/populate-async'
 import {
-  discoverMethods
-} from '../../services/api/themoviedb/utils/constants'
+  ADD_MOVIES,
+  REMOVE_MOVIES,
+  SET_FILTER,
+  SEARCH_MOVIE,
+  FIND_MOVIE_SLIDER,
+  FIND_MOVIE,
+  FIND_MOVIE_LIST,
+  FIND_LIST_PROVIDERS,
+  FIND_LIST_VIDEO
+} from '../../actions/reducer/movie'
+import localStore from '../../services/localstorage'
 
-const movieReducerDefaultDynamicParams = {}
-getLanguage().then(result => {
-  movieReducerDefaultDynamicParams.language = result.split('-')[0] ?? 'en'
-
-  // SETTING DEFAULT STATE
-  populate_initialState('movie', 'apiDiscover', discoverMethods.movie, movieReducerDefaultDynamicParams).then( result => {
-    initialState = result
-  })
-})*/
 let initialState = undefined
+const name = 'movie'
 
 const movieSlice = {
-  name: 'movie',
+  name,
   initialState: {
     movies: initialState,
+    find_slider: initialState,
+    find: initialState,
+    find_list: initialState,
+    find_list_providers: initialState,
+    find_list_video: initialState,
   },
   reducers: {
     [ADD_MOVIES]: (state, action) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.movies = action.payload
-      // console.info(state.movies, action.payload)
-    },
-    [SET_FILTER]: (state, action) => {
-      state.movies = action.payload
+      action.payload.results = state.movies.results.concat(action.payload.results)
+      state.movies = {...action.payload}
     },
     [REMOVE_MOVIES]: state => {
+      localStore(name).remove()
       delete state.movies
-      // state.movies = {}
     },
     [SEARCH_MOVIE]: (state, action) => {
-      state.movies = action.payload
-      // console.info(state.movies, action.payload)
+      state.movies = {...action.payload}
+    },
+    [SET_FILTER]: (state, action) => {
+      state.movies = {...action.payload}
+    },
+    [FIND_MOVIE_SLIDER]: (state, action) => {
+      state.find_slider = {...action.payload}
+    },
+    [FIND_MOVIE]: (state, action) => {
+      state.find = {...action.payload}
+    },
+    [FIND_MOVIE_LIST]: (state, action) => {
+      state.find_list = {...action.payload}
+      //console.info(action.payload)
+    },
+    [FIND_LIST_PROVIDERS]: (state, action) => {
+      state.find_list_providers = {...action.payload}
+      //console.info(action.payload)
+    },
+    [FIND_LIST_VIDEO]: (state, action) => {
+      state.find_list_video = {...action.payload}
+      //console.info(action.payload)
     },
   },
 }
-
-// Action creators are generated for each case reducer function
-//export { ADD_MOVIES, SET_FILTER, SEARCH_MOVIE }
-//export const { ADD_MOVIES, SET_FILTER, SEARCH_MOVIE } = movieSlice.actions
 
 export default movieSlice

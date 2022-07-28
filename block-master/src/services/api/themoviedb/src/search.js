@@ -4,7 +4,7 @@ import { formatParamsToString, callToApi } from '../utils/helpers'
 export function search(props = {}, query = '', language = 'en-US', page = 1, include_adult = false) {
 	const mainPath = 'search'
 	if (query.length === 0 && props?.query !== undefined) {
-		query = query.length == 0 ? props.query : query
+		query = query.length === 0 ? props.query : query
 		delete props.query
 	}
 	const requiredParams = {
@@ -23,5 +23,5 @@ export function search(props = {}, query = '', language = 'en-US', page = 1, inc
 	this[searchMethods.getPeople]    = _ => `${fullPath}/${mainPath}/person?${formatParamsToString(requiredParams)}&${formatParamsToString(optionalParams)}`
 
 	return async (callback = searchMethods.getMovies) =>
-		await callToApi(callback = searchMethods.getMovies, this)
+		await callToApi({callback, self:this})
 }

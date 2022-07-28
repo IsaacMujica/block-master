@@ -6,8 +6,8 @@ export const formatParamsToString = params => {
 	return returnString.slice(0, -1)
 }
 
-export const callToApi = async (callbackMethod, self) => {
-	const response = await fetch(`${self[callbackMethod]()}`, {})
+export const callToApi = async ({callback, self, props = {}}) => {
+	const response = await fetch(`${self[callback]()}`, {...props})
 	const data     = await response.json()
 	return data
 }

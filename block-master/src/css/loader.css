@@ -1,5 +1,6 @@
 .loader-container {
   margin: 0 auto;
+  text-align: center;
 }
 .loader {
   width: 48px;

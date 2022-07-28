@@ -1,9 +1,16 @@
 import { IconStar } from '../icons'
 import iconBrokenImage from '../../icons/broken-image.svg'
 
-export default function Movie({base_path, poster_path, title, vote_average}) {
+export default function Movie({ base_path, movie, setMovie, watchnowRef }) {
+	const { poster_path, title, vote_average } = {...movie}
+
+	const handlerMovieClick = event => {
+		watchnowRef.current.style.display = 'flex'
+		document.querySelector('body').style.overflow = 'hidden'
+		setMovie(movie)
+	}
 	return (
-		<div className="movie" title={title}>
+		<div className="movie" title={title} onClick={ handlerMovieClick }>
 			<div className="movie-content">
 				{ poster_path === null ?
 					<img src={iconBrokenImage} alt="" className="movie-poster img-fluid no-movies-poster" /> :

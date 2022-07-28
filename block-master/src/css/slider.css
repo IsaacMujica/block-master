@@ -1,35 +1,51 @@
-.alice-carousel__wrapper {
+.alice-carousel .alice-carousel__wrapper {
 	border-radius: .5rem;
+	max-height: 400px;
 }
 
-.alice-carousel__stage-item * {
+.alice-carousel .alice-carousel__stage-item * {
 	width: 100%;
 }
 
-.alice-carousel__dots-item {
+.alice-carousel /*.alice-carousel__dots {
+	position: relative;
+	--backGroundImageLinear: linear-gradient(to right, #fff 0%, #fff 50%, #000 50%, #000 100%);
+}
+.alice-carousel .alice-carousel__dots::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background-image: var(--backGroundImageLinear);
+	top: -15px;
+	left: 0;
+}*/
+.slider-dot {
 	width: 12px !important;
 	height: 12px !important;
 	background: var(--grey);
-
-	/* Inside auto layout */
 	flex: none;
 	order: 0;
 	flex-grow: 0;
 	border: 1px solid transparent;
+	margin: 0 0.25rem;
+	border-radius: 50%;
+	cursor: pointer;
 }
-.alice-carousel__dots-item.__active {
+.__active > .slider-dot {
 	background: var(--white) !important;
 	border: 1px solid var(--primary);
 }
 
 .slider-actions-container {
 	width: 100%;
-	height: calc(100% - 61px);
+	height: calc(100% - 57px);
 	position: absolute;
 	top: 0;
 	left: 0;
+	/*background-color: rgba(15, 14, 23, .5);*/
 }
-.slider-actions-container .content {
+.slider-actions-container > .content {
 	display: flex;
 	flex-direction: row;
 	align-items: flex-end;
@@ -37,7 +53,7 @@
 	padding: 1.5rem 2rem;
 	gap: 1rem;
 }
-.slider-actions-container .content > * {
+.slider-actions-container > .content > * {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -47,11 +63,44 @@
 	font: var(--headline5);
 	cursor: pointer;
 }
-.slider-actions-container .content > * svg {
+.slider-actions-container > .content > * svg {
 	filter: var(--black-filter);
 	display: flex;
 	align-items: center;
 }
+
+.alice-carousel .alice-carousel__slide-info {
+	background-color: rgba(15, 14, 23, .5);
+}
+.slider-actions-title-container {
+	/*position: absolute;*/
+	/*top: 0;*/
+	/*background: #fff;*/
+	/*width: 100%;*/
+}
+#movieTitle {
+	color: var(--white);
+	/*text-align: center;
+	width: 100%;
+	padding: 0;*/
+}
+
+.slider-timer-container {
+	width: 98%;
+	height: 1px;
+	margin: 0 auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	background-color: var(--background);
+}
+.slider-timer {
+	width: 0;
+	height: 100%;
+	transition: width 10s;
+	background-color: var(--white);
+}
+
 .whatch-now {
 	color: var(--black);
 	background-color: var(--primary);
@@ -63,4 +112,29 @@
 }
 .whatch-later svg {
 	filter: var(--primary-filter) !important;
+}
+
+.alice-carousel .alice-carousel__play-btn {
+	display: none;
+}
+
+#Navigator {
+	/*position: absolute;*/
+	/*top: calc(100% - 68px);*/
+	padding-top: 1rem;
+	/*margin-bottom: 1rem;*/
+	justify-content: space-around;
+}
+/*.navigator {
+	text-align: center
+}*/
+#Navigator button {
+	text-align: center;
+	margin: 0 auto;
+	background-color: transparent;
+	color: var(--white);
+	font: var(--button);
+	border: 1px solid var(--white);
+	border-radius: 5px;
+	padding: .2rem 1rem;
 }

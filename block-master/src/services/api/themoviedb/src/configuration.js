@@ -12,5 +12,5 @@ export function configuration() {
 	this[configurationMethods.getLanguages]     = _ => `${fullPath}/${mainPath}/languages?${formatParamsToString(requiredParams)}`
 
 	return async (callback = configurationMethods.getConfiguration) =>
-		await callToApi(callback = configurationMethods.getConfiguration, this)
+		await callToApi({callback, self:this})
 }

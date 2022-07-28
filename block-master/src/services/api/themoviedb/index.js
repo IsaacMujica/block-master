@@ -3,12 +3,16 @@ export {
 } from './src/configuration'
 
 export {
-	movies
-} from './src/movies'
-
-export {
 	discover
 } from './src/discover'
+
+export {
+	genres
+} from './src/genres'
+
+export {
+	movies
+} from './src/movies'
 
 export {
 	search

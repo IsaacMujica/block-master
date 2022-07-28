@@ -4,18 +4,18 @@ import MovieList from './main/MovieList'
 import '../css/main.css'
 import '../css/main-responsive.css'
 
-import { ADD_MOVIES_ASYNC, VALIDATE_DATA_ASYNC } from '../reducers/index'
+import { SET_FILTER_ASYNC, VALIDATE_DATA_ASYNC } from '../reducers/index'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function Main() {
 	let movies           = useSelector(state => state.movie)
 	let apiConfiguration = useSelector(state => state.apiConfiguration)
 	const dispatch       = useDispatch()
-	const title = movies?.movies?.title ?? 'Buscando...'
+	const title = movies?.movies?.local_filter_title ?? 'Buscando...'
 
 	useEffect(() => {
 		if (movies?.movies === undefined || movies.movies?.results === undefined)
-			dispatch(ADD_MOVIES_ASYNC())
+			dispatch(SET_FILTER_ASYNC())
 	}, [])
 
 	useEffect(() => {
