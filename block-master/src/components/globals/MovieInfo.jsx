@@ -8,9 +8,7 @@ export default function MovieInfo ({id, movie, config}) {
 	const poster_path = `${config.images.secure_base_url}${config.images.poster_sizes[2]}/${movie.poster_path}`
 
   let durationTime  = new Date(movie.runtime * 60 * 1000)
-  let hour          = durationTime.getUTCHours()
-  let minutes       = durationTime.getMinutes() < 10 ? `0${durationTime.getMinutes()}` : durationTime.getMinutes()
-  durationTime      = `${hour}h ${minutes}m`
+  durationTime      = `${durationTime.getUTCHours()}h ${durationTime.getMinutes()}m`
   const releaseDate = new Date(movie.release_date).getFullYear()
 
   useEffect(_ => {
@@ -37,7 +35,7 @@ export default function MovieInfo ({id, movie, config}) {
   	}
   }, [movie?.id])
 	return (
-    <div id={id} className="movieInfo-content row watch-body">
+    <div id={id} className="movieInfo-content row watch-body mb-1">
       <div className="col">
         <div ref={content} className="movieInfo-content center-fit-content">
           <img ref={image} className="movieInfo-img" src={poster_path} alt={movie.title} title={movie.title} />

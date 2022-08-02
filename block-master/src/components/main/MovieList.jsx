@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
-import Movie from './Movie'
+import Movie from '../globals/Movie'
 import Loader from '../globals/Loader'
-import NoMovies from './NoMovies'
+import NoMovies from '../globals/NoMovies'
 import MovieDetailContainer from './MovieDetailContainer'
 
 export default function MovieList({ movies, apiConfiguration }) {
@@ -31,7 +31,7 @@ export default function MovieList({ movies, apiConfiguration }) {
 			<Loader />
 		}
 			<div ref={watchnowRef} className="movie-container">
-				<MovieDetailContainer movie={movieList} target={watchnowRef} />
+				<MovieDetailContainer movie={movieList} setMovie={setMovieList} target={watchnowRef} />
 			</div>
 		</section>
 	)

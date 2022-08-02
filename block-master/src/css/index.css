@@ -23,6 +23,36 @@
   --menu-list-item: normal 700 1rem/1.1875rem Inter;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--grey);
+}
+*:active {
+  scrollbar-color: var(--primary);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: .25rem;
+  height: .375rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--grey);
+  border-radius: 5px
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
 body, header, main, section, footer, div, ul, li {
   margin: 0;
   box-sizing: border-box;
@@ -40,6 +70,10 @@ h1{
 
 h2{
   font: var(--headline2);
+}
+
+h2,h3,h4,h5,h6 {
+  color: var(--white);
 }
 
 p{
@@ -93,7 +127,7 @@ button {
   flex: 0 0 100%;
   width: 100%;
 }
-.row .col, .row .col-auto, .row .col-6, .row .col-12 {
+.col, .col-auto, .col-6, .col-12 {
   padding-left: .75rem;
   padding-right: .75rem;
 }
@@ -123,6 +157,9 @@ button {
 .mx-1 {
   margin-left: 1rem;
   margin-right: 1rem;
+}
+.mt-1 {
+  margin-top: 1rem;
 }
 .mb-1 {
   margin-bottom: 1rem;

@@ -3,9 +3,9 @@ import LoaderContainer from '../globals/LoaderContainer'
 import MovieInfo from '../globals/MovieInfo'
 
 export default function MovieOverScreen({movie}) {
-  const hookMovie = useMovie({movie_id:movie?.id, prop:'find_list'})
+  const hookMovie = useMovie(movie?.id)
 
-  if (hookMovie?.valid) return <LoaderContainer text='Cargando información...' />
+  if (!hookMovie.valid) return <LoaderContainer text='Cargando información...' />
 
   return <MovieInfo id="listInfo" movie={hookMovie.movie} config={hookMovie.config.config} />
 }

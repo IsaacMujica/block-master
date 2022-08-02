@@ -31,6 +31,7 @@ export const {
   FIND_MOVIE,
   FIND_MOVIE_LIST,
   FIND_LIST_PROVIDERS,
+  FIND_LIST_SIMILAR,
   FIND_LIST_VIDEO,
   REMOVE_MOVIES,
   SEARCH_MOVIE,
@@ -131,21 +132,35 @@ export const FIND_MOVIE_LIST_ASYNC = (props = {}) => (dispatch) => {
   }
   return buildPopulateCallbackProps(buildProps)
 }
-export const FIND_LIST_PROVIDERS_ASYMC = (props = {}) => (dispatch) => {
+export const FIND_LIST_PROVIDERS_ASYNC = (props = {}) => (dispatch) => {
   props = buildPropsHelper({
     ...props,
     localStoreName: props?.localStoreName ?? 'movie',
-    localStoreIndex: props?.localStoreIndex ?? 'find_list',
+    localStoreIndex: props?.localStoreIndex ?? 'find_list_providers',
     api: props?.api ?? 'movies',
-    apiMethod: props?.apiMethod ?? moviesMethods.getMovie,
+    apiMethod: props?.apiMethod ?? moviesMethods.getWatchProviders,
   })
-  if (props?.reduce_callback !== undefined)
-    delete props?.reduce_callback
   const buildProps = {
     props,
     dispatch,
     callback: populate,
     reduce_callback: FIND_LIST_PROVIDERS
+  }
+  return buildPopulateCallbackProps(buildProps)
+}
+export const FIND_LIST_SIMILAR_ASYNC = (props = {}) => (dispatch) => {
+  props = buildPropsHelper({
+    ...props,
+    localStoreName: props?.localStoreName ?? 'movie',
+    localStoreIndex: props?.localStoreIndex ?? 'find_list_similar',
+    api: props?.api ?? 'movies',
+    apiMethod: props?.apiMethod ?? moviesMethods.getSimilarMovies,
+  })
+  const buildProps = {
+    props,
+    dispatch,
+    callback: populate,
+    reduce_callback: FIND_LIST_SIMILAR
   }
   return buildPopulateCallbackProps(buildProps)
 }
@@ -155,7 +170,7 @@ export const FIND_LIST_VIDEO_ASYNC = (props = {}) => (dispatch) => {
     localStoreName: props?.localStoreName ?? 'movie',
     localStoreIndex: props?.localStoreIndex ?? 'find_list_videos',
     api: props?.api ?? 'movies',
-    apiMethod: props?.apiMethod ?? moviesMethods.getMovie,
+    apiMethod: props?.apiMethod ?? moviesMethods.getVideos,
   })
   const buildProps = {
     props,

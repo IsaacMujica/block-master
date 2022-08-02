@@ -5,9 +5,10 @@
 	padding-right: 1rem;
 	text-align: center;
 	margin-bottom: 1rem;
+}
+.movie > .movie-content {
 	cursor: pointer;
 }
-
 .movie-content {
 	position: relative;
 	overflow: hidden;
@@ -39,7 +40,7 @@
 .movie-rate {
 	position: absolute;
 	top: 1.5rem;
-	left: -1%;
+	left: -2px;
 	opacity: 0.8;
 	display: flex;
 	align-items: center;
@@ -124,9 +125,9 @@
 	position: absolute;
 	right: 0
 }
-/*.movieInfo-content .data-col:first-child {
+.movieInfo-content .data-col:first-child {
 	padding-left: 0
-}*/
+}
 .movieInfo-content .data-col:last-child {
 	padding-right: 0
 }
@@ -176,4 +177,17 @@
 
 .more-info {
 	color: var(--grey)
+}
+
+.movie-similar-container {
+	overflow-x: hidden;
+}
+.movie-similar-container .movie-similar-content {
+	display: flex;
+	flex-direction: row;
+	overflow-x: auto;
+}
+.movie-similar-container .movie-similar-content > .movie {
+	flex: 0 0 auto;
+	width: auto;
 }
