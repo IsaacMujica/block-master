@@ -9,6 +9,7 @@ export function configuration() {
 
 	this[configurationMethods.getConfiguration] = _ => `${fullPath}/${mainPath}?${formatParamsToString(requiredParams)}`
 	this[configurationMethods.getCountries]     = _ => `${fullPath}/${mainPath}/countries?${formatParamsToString(requiredParams)}`
+	this[configurationMethods.getJobs]          = _ => `${fullPath}/${mainPath}/jobs?${formatParamsToString(requiredParams)}`
 	this[configurationMethods.getLanguages]     = _ => `${fullPath}/${mainPath}/languages?${formatParamsToString(requiredParams)}`
 
 	return async (callback = configurationMethods.getConfiguration) =>

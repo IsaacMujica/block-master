@@ -4,6 +4,7 @@ import MovieProvider from '../globals/MovieProvider'
 import MovieVideo from '../globals/MovieVideo'
 import LoaderContainer from '../globals/LoaderContainer'
 import MovieSimilar from '../globals/MovieSimilar'
+import MovieCredit from '../globals/MovieCredit'
 
 export default function MovieDetailContainer({movie, setMovie, target}) {
 
@@ -18,6 +19,11 @@ export default function MovieDetailContainer({movie, setMovie, target}) {
 				</div>
 				<div className="col">
 					<MovieProvider movie={movie} />
+				</div>
+			</div>
+			<div className="row">
+				<div className="col">
+					<MovieCredit movie={movie} setMovie={setMovie} />
 				</div>
 			</div>
 			<div className="row">

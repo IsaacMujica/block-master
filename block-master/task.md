@@ -19,8 +19,8 @@
 ## Create component to display Similar Movies ##
 	- Check what to do with link property on provider_data.type ##
 	- Check and evaluate to return the videos from a movie ##
-## Create component to display Movie Credits (**************************)
-## Create component to display Movie Reviews
+## Create component to display Movie Credits ##
+## Create component to display Movie Reviews (**************************)
 ## Create component to display Movie Providers ##
 ## Create component Loader ##
 

@@ -8,7 +8,8 @@ import {
   FIND_MOVIE_LIST,
   FIND_LIST_PROVIDERS,
   FIND_LIST_VIDEO,
-  FIND_LIST_SIMILAR
+  FIND_LIST_SIMILAR,
+  FIND_LIST_CREDIT
 } from '../../actions/reducer/movie'
 import localStore from '../../services/localstorage'
 
@@ -24,6 +25,7 @@ const movieSlice = {
     find_list: initialState,
     find_list_providers: initialState,
     find_list_similar: initialState,
+    find_list_credit: initialState,
     find_list_video: initialState,
   },
   reducers: {
@@ -57,6 +59,10 @@ const movieSlice = {
     },
     [FIND_LIST_SIMILAR]: (state, action) => {
       state.find_list_similar = {...action.payload}
+      //console.info(action.payload)
+    },
+    [FIND_LIST_CREDIT]: (state, action) => {
+      state.find_list_credit = {...action.payload}
       //console.info(action.payload)
     },
     [FIND_LIST_VIDEO]: (state, action) => {

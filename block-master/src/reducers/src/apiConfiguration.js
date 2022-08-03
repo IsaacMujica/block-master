@@ -1,4 +1,4 @@
-import { VALIDATE_DATA, GENRES_DATA, COUNTRIES_DATA, LENGUAGES_DATA } from '../../actions/reducer/apiConfiguration'
+import { VALIDATE_DATA, GENRES_DATA, COUNTRIES_DATA, LENGUAGES_DATA, JOBS_DATA } from '../../actions/reducer/apiConfiguration'
 
 let initialState = undefined
 
@@ -9,6 +9,7 @@ const apiConfigurationSlice = {
     genres: initialState,
     countries: initialState,
     lenguages: initialState,
+    jobs: initialState,
   },
   reducers: {
     [VALIDATE_DATA]: (state, action) => {
@@ -22,6 +23,9 @@ const apiConfigurationSlice = {
     },
     [LENGUAGES_DATA]: (state, action) => {
       state.lenguages = [...action.payload]
+    },
+    [JOBS_DATA]: (state, action) => {
+      state.jobs = [...action.payload]
     },
   },
 }

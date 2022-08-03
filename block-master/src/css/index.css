@@ -20,6 +20,10 @@
   --body1-bold: 700 1.125rem/1.6875rem Montserrat;
   --body2-regular: 400 1rem/1.375rem Montserrat;
   --body2-bold: 700 1rem/1.1875rem Montserrat;
+  --body3-regular: 400 .85rem/1.375rem Montserrat;
+  --body3-bold: 700 .85rem/1.1875rem Montserrat;
+  --body4-regular: 400 .65rem/1.375rem Montserrat;
+  --body4-bold: 700 .65rem/1.1875rem Montserrat;
   --menu-list-item: normal 700 1rem/1.1875rem Inter;
 }
 
@@ -51,6 +55,11 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
+}
+
+::selection {
+  background-color: var(--primary);
+  color: var(--white)
 }
 
 body, header, main, section, footer, div, ul, li {
@@ -91,6 +100,12 @@ button {
 
 .d-none {
   display: none;
+}
+.d-block {
+  display: block;
+}
+.d-flex {
+  display: flex;
 }
 
 .container {
@@ -147,6 +162,20 @@ button {
 .m-0 {
   margin: 0
 }
+.mt-0 {
+  margin-top: 0;
+}
+.mb-0 {
+  margin-bottom: 0;
+}
+.my-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.mx-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
 .m-1 {
   margin: 1rem;
 }
@@ -169,6 +198,12 @@ button {
 }
 .p-1 {
   padding: 1rem;
+}
+.pt-1 {
+  padding-top: 1rem;
+}
+.pb-1 {
+  padding-bottom: 1rem;
 }
 .py-1 {
   padding-top: 1rem;

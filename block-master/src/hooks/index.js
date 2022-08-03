@@ -1,4 +1,5 @@
 export { useMovie } from './src/useMovie'
 export { useMovieProvider } from './src/useMovieProvider'
 export { useMovieSimilar } from './src/useMovieSimilar'
+export { useMovieCredit } from './src/useMovieCredit'
 export { useMovieVideo } from './src/useMovieVideo'

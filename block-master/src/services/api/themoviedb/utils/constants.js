@@ -14,6 +14,7 @@ const defaultParams = {
 const configurationMethods = {
 	getConfiguration: 'getConfiguration',
 	getCountries: 'getCountries',
+	getJobs: 'getJobs',
 	getLanguages: 'getLanguages',
 }
 const discoverMethods = {
@@ -55,10 +56,26 @@ const apiFilterTitle = {
 		[searchMethods.getMovies]: 'Resultado de búsqueda'
 	}
 }
+const departments = {
+	Acting: 'Actuación',
+	Actors: 'Actores',
+	Art: 'Arte',
+	Camera: 'Cámara',
+	"Costume & Make-Up": 'Vestuario y Maquillaje',
+	Crew: 'Personal',
+	Directing: 'Dirección',
+	Editing: 'Edición',
+	Lighting: 'Iluminación',
+	Production: 'Producción',
+	Sound: 'Sonido',
+	"Visual Effects": 'Efectos Visuales',
+	Writing: 'Escritura',
+}
 
 export {
 	API_KEY,
 	defaultParams,
+	departments,
 	fullPath,
 	apiFilterTitle,
 	configurationMethods,

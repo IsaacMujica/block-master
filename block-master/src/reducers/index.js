@@ -5,7 +5,7 @@ import movieReducer from './src/movie'
 import apiConfigurationReducer from './src/apiConfiguration'
 import sliderReducer from './src/slider'
 import sliderInfoReducer from './src/sliderInfo'
-import { buildPopulateCallback, buildPopulateCallbackProps, buildProps as buildPropsHelper } from './utils/helpers'
+import { buildPopulateCallbackProps, buildProps as buildPropsHelper } from './utils/helpers'
 
 import populate, { populate_replace } from './utils/populate-async'
 import {
@@ -32,6 +32,7 @@ export const {
   FIND_MOVIE_LIST,
   FIND_LIST_PROVIDERS,
   FIND_LIST_SIMILAR,
+  FIND_LIST_CREDIT,
   FIND_LIST_VIDEO,
   REMOVE_MOVIES,
   SEARCH_MOVIE,
@@ -164,6 +165,22 @@ export const FIND_LIST_SIMILAR_ASYNC = (props = {}) => (dispatch) => {
   }
   return buildPopulateCallbackProps(buildProps)
 }
+export const FIND_LIST_CREDIT_ASYNC = (props = {}) => (dispatch) => {
+  props = buildPropsHelper({
+    ...props,
+    localStoreName: props?.localStoreName ?? 'movie',
+    localStoreIndex: props?.localStoreIndex ?? 'find_list_credit',
+    api: props?.api ?? 'movies',
+    apiMethod: props?.apiMethod ?? moviesMethods.getCredits,
+  })
+  const buildProps = {
+    props,
+    dispatch,
+    callback: populate,
+    reduce_callback: FIND_LIST_CREDIT
+  }
+  return buildPopulateCallbackProps(buildProps)
+}
 export const FIND_LIST_VIDEO_ASYNC = (props = {}) => (dispatch) => {
   props = buildPropsHelper({
     ...props,
@@ -197,6 +214,7 @@ export const {
   GENRES_DATA,
   COUNTRIES_DATA,
   LENGUAGES_DATA,
+  JOBS_DATA,
 } = apiConfiguration.actions
 
 // CREATING ASYNCRONOUS ACTIONS
@@ -236,6 +254,22 @@ export const COUNTRIES_DATA_ASYNC = (props = {}) => (dispatch) => {
     dispatch,
     callback: populate,
     reduce_callback: COUNTRIES_DATA
+  }
+  buildPopulateCallbackProps(buildProps)
+}
+export const JOBS_DATA_ASYNC = (props = {}) => (dispatch) => {
+  props = buildPropsHelper({
+    ...props,
+    localStoreName: props?.localStoreName ?? 'apiConfiguration',
+    localStoreIndex: props?.localStoreIndex ?? 'jobs',
+    api: props?.api ?? 'configuration',
+    apiMethod: props?.apiMethod ?? configurationMethods.getJobs,
+  })
+  const buildProps = {
+    props,
+    dispatch,
+    callback: populate,
+    reduce_callback: JOBS_DATA
   }
   buildPopulateCallbackProps(buildProps)
 }

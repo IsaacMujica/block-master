@@ -5,7 +5,7 @@ import Slider from './components/Slider'
 import Main from './components/Main'
 import Footer from './components/Footer'
 
-import { GENRES_DATA_ASYNC, COUNTRIES_DATA_ASYNC, LENGUAGES_DATA_ASYNC } from './reducers/index'
+import { GENRES_DATA_ASYNC, COUNTRIES_DATA_ASYNC, LENGUAGES_DATA_ASYNC, JOBS_DATA_ASYNC } from './reducers/index'
 import { useSelector, useDispatch } from 'react-redux'
 
 function BlockMaster() {
@@ -18,6 +18,8 @@ function BlockMaster() {
       dispatch(COUNTRIES_DATA_ASYNC())
     if (apiConfiguration?.lenguages === undefined)
       dispatch(LENGUAGES_DATA_ASYNC())
+    if (apiConfiguration?.jobs === undefined)
+      dispatch(JOBS_DATA_ASYNC())
   }, [])
   return (
     <div className="container">
