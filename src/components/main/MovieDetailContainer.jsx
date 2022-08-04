@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react'
-import * as ReactIs from 'react-is';
+import { useState } from 'react'
 import CloseButton from '../globals/CloseButton'
 import MovieOverScreen from './MovieOverScreen'
 import MovieProvider from '../globals/MovieProvider'
@@ -12,27 +11,15 @@ import MovieReview from '../globals/MovieReview'
 
 const builder_timer = (Component, timer = 5) => new Promise( resolve => setTimeout(resolve, timer * 1000, Component) )
 
-	/*return new Promise( resolve => setTimeout(resolve(Component), timer * 1000) )
-	.then( ComponentReult => {
-		console.info('Mark')
-		return ComponentReult
-	})*/
-
-const builder = async (movie, setMovie) => {
+/*const builder = async (movie, setMovie) => {
 	const orderBuild = builder_order(movie, setMovie)
 	const groupOrderBuild = orderBuild.map( buildComponent => builder_timer(buildComponent).then( resultComponent => resultComponent ) )
 	const groupOrderBuild2 = await recursiveBuilder(orderBuild[0], orderBuild).then(result => result)
-	//console.info(groupOrderBuild2)
-	//Promise.all(groupOrderBuild).then(groupResults => console.info(groupResults))
 	return groupOrderBuild2
-	/*return await orderBuild.map( buildComponent => {
-			return builder_timer(buildComponent)
-		})*/
 	return await orderBuild.map( buildComponent => {
 		return builder_timer(buildComponent).then( resultComponent => resultComponent )
 	})
-	//return await builder_timer(Component)
-}
+}*/
 
 const recursiveBuilder = async (currentComponent, allComponents, id = 0, resultedComponents = []) => {
 	return await builder_timer(currentComponent, 2).then( resultComponent => {
@@ -112,7 +99,7 @@ export default function MovieDetailContainer({movie, setMovie, target}) {
 	if (overScreenValidating) {
 		if (stateMovieOverScreen.length !== 0)
 			setterOrder.map( setter => setter([]))
-		builder_timer(orderBuild[0], .1).then( resultComponent => setterOrder[0](resultComponent) )
+		builder_timer(orderBuild[0], .5).then( resultComponent => setterOrder[0](resultComponent) )
 		.then( _ => {
 			builder_timer(orderBuild[1], .1).then( resultComponent => setterOrder[1](resultComponent) )
 			.then( _ => {

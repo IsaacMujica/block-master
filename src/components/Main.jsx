@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
 import MovieTitle from './main/MovieTitle'
 import MovieList from './main/MovieList'
-import '../css/main.css'
-import '../css/main-responsive.css'
 
 import { SET_FILTER_ASYNC, VALIDATE_DATA_ASYNC } from '../reducers/index'
 import { useSelector, useDispatch } from 'react-redux'

@@ -58,7 +58,7 @@ async function getLocation() {
 
 const buildProps = (props) => {
   props.localStoreName  = props?.localStoreName ?? 'movie'
-  props.localStoreIndex = props?.localStoreIndex
+  props.localStoreIndex = props?.localStoreIndex ?? undefined
   props.api             = props?.api ?? 'discover'
   props.apiMethod       = props?.apiMethod ?? discoverMethods.getMovie
   if (props?.reduce_callback !== undefined)

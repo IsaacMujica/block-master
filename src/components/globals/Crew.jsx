@@ -3,8 +3,6 @@ import iconBrokenImage from '../../icons/broken-image.svg'
 export default function Crew({ base_path, credit }) {
 	const { profile_path, job, original_name } = {...credit}
 
-	//return <></>
-
 	return (
 		<div className="cast" title={original_name}>
 			<div className="cast-content">

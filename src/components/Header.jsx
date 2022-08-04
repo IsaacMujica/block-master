@@ -1,14 +1,11 @@
-// import { useEffect, useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 import logo from '../images/logo-blockBuster.png'
 import { IconSearch } from './icons'
-import '../css/header.css'
-import '../css/header-responsive.css'
 
 import { SEARCH_MOVIES_ASYNC, SET_FILTER_ASYNC, REMOVE_MOVIES } from '../reducers/index'
-import { /*useSelector, */useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import {
   defaultParams,
@@ -19,7 +16,6 @@ const Nav = styled.nav`
 `
 
 export default function Header() {
-	// let movies     = useSelector(state => state.movie)
 	const dispatch = useDispatch()
 	const handlerSubmit = event => {
 		event.preventDefault()

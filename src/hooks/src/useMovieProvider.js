@@ -24,11 +24,10 @@ const useMovieProvider = movie_id => {
 				getLanguage().then(lenguage => {
 					lenguage = lenguage.split('-')
 					getLocation().then(location => {
-						valid = true
 						setReturnMovie({
 							config: apiConfiguration,
 							movie: result.result,
-							valid,
+							valid: true,
 							lenguage,
 							location,
 						})

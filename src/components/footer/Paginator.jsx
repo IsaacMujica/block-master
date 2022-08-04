@@ -12,7 +12,7 @@ import Loader from '../globals/Loader'
 import { SET_FILTER_ASYNC, REMOVE_MOVIES, ADD_MOVIES_ASYNC } from '../../reducers/index'
 import { useSelector, useDispatch } from 'react-redux'
 
-export default function Paginator({ observedElement/*, isChecked*/ }) {
+export default function Paginator({ observedElement }) {
 	const infiniteScrollChecked  = useRef(null)
 	const refLabelInfiniteScroll = useRef(null)
 	let movies     = useSelector(state => state.movie)
@@ -221,9 +221,6 @@ export default function Paginator({ observedElement/*, isChecked*/ }) {
 							className="d-none"
 							onInput={handlerInfiniteScrollInput}
 						/>
-						{/*<label className="label-for-ininite-scroll" htmlFor="infiniteScroll">
-							Scroll Infinito
-						</label>*/}
 						<label ref={refLabelInfiniteScroll} className="label-for-ininite-scroll fixed" htmlFor="infiniteScroll">
 							Toggle Scroll Infinito
 						</label>

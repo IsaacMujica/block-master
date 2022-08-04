@@ -20,7 +20,6 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	/*gap: 2rem;*/
 }
 
 .movies-title {
@@ -63,8 +62,6 @@
 	width: 60px;
 	height: 60px;
 	left: 1.5rem;
-	/*top: 0;
-	right: 0;*/
 	padding: 0;
 	justify-content: center;
 }
@@ -72,13 +69,13 @@
 .movie-container {
 	width: 100%;
 	height: 100%;
-	display: none;
+	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: stretch;
 	position: fixed;
 	left: 0;
-	top: 0;
+	top: 100%;
 	z-index: 9999;
 	background-color: rgba(0,0,0, .95);
 	overflow: auto;
@@ -148,9 +145,6 @@
 	max-height: 264px;
 }
 .watch-body {
-	/*height: 100%;
-	max-height: calc(100vh - 8rem);
-	overflow: auto;*/
   padding-top: 2rem;
   padding-bottom: 1rem;
 }
@@ -225,10 +219,6 @@
 	display: flex;
 	font: var(--body4-regular);
 }
-/*.character-name > * {
-	margin: 0;
-	font: var(--body3-regular);
-}*/
 
 .movie-review-container {
 	border-top: 1px solid var(--white);
@@ -248,4 +238,8 @@
 }
 .review-date {
 	font: var(--body3-regular);
+}
+.review-avatar {
+	width: 100%;
+	max-width: 75px;
 }

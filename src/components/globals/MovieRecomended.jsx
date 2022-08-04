@@ -11,8 +11,6 @@ export default function MovieRecomended({movie, setMovie}) {
 	const config_image = hookMovieRecomended.config.config.images
 	const base_path    = `${config_image.secure_base_url}${config_image.poster_sizes[2]}`
 
-	console.info(hookMovieRecomended.movie.results)
-
 	return (
 		<div className="movie-similar-container">
 			<h4 className="my-1">Recomendadas</h4>

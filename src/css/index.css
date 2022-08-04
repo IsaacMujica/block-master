@@ -99,13 +99,13 @@ button {
 }
 
 .d-none {
-  display: none;
+  display: none !important;
 }
 .d-block {
-  display: block;
+  display: block !important;
 }
 .d-flex {
-  display: flex;
+  display: flex !important;
 }
 
 .container {
@@ -123,8 +123,6 @@ button {
   flex-direction: row;
   width: 100%;
   flex: 0 0 auto;
-  /*margin-left: -.75rem;
-  margin-right: -.75rem;*/
 }
 .col {
   flex: 0 0 auto;

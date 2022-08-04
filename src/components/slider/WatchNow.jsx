@@ -5,7 +5,8 @@ import Navigator from './Navigator'
 export default function WatchNow({carouselRef, sliderTimer, watchNow}) {
 
 	const handlerCloseWatchNowClick = event => {
-		watchNow.current.style.display       = 'none'
+		watchNow.current.classList.add('slide-bottom')
+		watchNow.current.classList.remove('slide-top')
 		sliderTimer.current.style.width      = '100%'
 		sliderTimer.current.style.transition = 'width 10s'
 		document.querySelector('body').style.overflow = 'visible'

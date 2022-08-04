@@ -7,23 +7,18 @@ import { SET_SLIDERINFOS } from '../../reducers/index'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function Carousel({carouselRef, items, sliderTimer}) {
-	let sliderInfos = useSelector(state => state.sliderInfo)
 	const dispatch  = useDispatch()
 
 	const handlerOnSlideChange = event => {
-		// console.info('handlerOnSlideChange')
-		// dispatch(SET_SLIDERINFOS({slider: event}))// movie = items[event.slide]
 		resetTimerWidth()
 	}
 
 	const handlerOnSlideChanged = event => {
-		// console.info('handlerOnSlideChanged')
-		dispatch(SET_SLIDERINFOS({slider: {...event, movie_id:items[event.slide].props.movie_id}}))// movie = items[event.slide]
+		dispatch(SET_SLIDERINFOS({slider: {...event, movie_id:items[event.slide].props.movie_id}}))
 		updateTimerWidth()
 	}
 	const handlerOnInitialized = event => {
-		// console.info('handlerOnInitialized')
-		dispatch(SET_SLIDERINFOS({slider: {...event, movie_id:items[event.slide].props.movie_id}}))// movie = items[event.slide]
+		dispatch(SET_SLIDERINFOS({slider: {...event, movie_id:items[event.slide].props.movie_id}}))
 		updateTimerWidth()
 	}
 

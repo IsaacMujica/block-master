@@ -14,7 +14,7 @@ export default function MovieInfo ({id, movie, config}) {
   useEffect(_ => {
   	const transitionTime = setTimeout(_ => {
 	  	if (content.current) {
-	  		content.current.classList.remove(/*'position-relative', */'center-fit-content')
+	  		content.current.classList.remove('center-fit-content')
 	  		content.current.classList.add('aligned-flexible')
 	  	}
 	  	if (image.current)
@@ -24,7 +24,7 @@ export default function MovieInfo ({id, movie, config}) {
   	}, 10)
   	return _ => {
 	  	if (content.current) {
-	  		content.current.classList.add(/*'position-relative', */'center-fit-content')
+	  		content.current.classList.add('center-fit-content')
 	  		content.current.classList.remove('aligned-flexible')
 	  	}
 	  	if (image.current)

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { FIND_LIST_VIDEO_ASYNC } from '../../reducers/index'
-import { getLanguage, getLocation } from '../../reducers/utils/helpers'
 
 const useMovieVideo = movie_id => {
 	let movies					 = useSelector(state => state.movie)
@@ -21,11 +20,10 @@ const useMovieVideo = movie_id => {
 	useEffect(_ => {
 		if ( movie_id !== undefined && movie_id !== movies?.find_list_videos?.id )
 			dispatch(FIND_LIST_VIDEO_ASYNC({movie_id})).then(result => {
-				valid = true
 				setReturnMovie({
 					config: apiConfiguration,
 					movie: result.result,
-					valid,
+					valid: true,
 				})
 			})
 	}, [movie_id])

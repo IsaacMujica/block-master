@@ -6,9 +6,10 @@ export default function Movie({ base_path, movie, setMovie, watchnowRef }) {
 
 	const handlerMovieClick = event => {
 		if (watchnowRef?.current) {
-			watchnowRef.current.style.display = 'flex'
+			watchnowRef.current.classList.add('slide-top')
+			watchnowRef.current.classList.remove('slide-bottom')
 			document.querySelector('body').style.overflow = 'hidden'
-		}
+		} else document.querySelectorAll('.movie-container')[1].querySelector('.movie-content').scrollTo({ top: 0, behavior: 'smooth' })
 		setMovie(movie)
 	}
 	return (

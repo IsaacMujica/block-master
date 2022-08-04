@@ -1,8 +1,5 @@
-// import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-//import { ADD_MOVIES, SET_FILTER, SEARCH_MOVIE } from '../../actions/reducer/movie'
 import { increment, decrement, incrementByAmount } from '../../reducers/movie'
-// import styles from './Counter.module.css'
 
 export default function Counter() {
   const count = useSelector((state) => state.movie.value)

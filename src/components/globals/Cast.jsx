@@ -3,8 +3,6 @@ import iconBrokenImage from '../../icons/broken-image.svg'
 export default function Cast({ base_path, credit }) {
 	const { profile_path, character, original_name } = {...credit}
 
-	//return <></>
-
 	return (
 		<div className="cast" title={original_name}>
 			<div className="cast-content">

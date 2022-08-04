@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import '../css/slider.css'
 import LoaderContainer from './globals/LoaderContainer'
 import Carousel from './slider/Carousel'
 import Actions from './slider/Actions'

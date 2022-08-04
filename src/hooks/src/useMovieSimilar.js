@@ -20,11 +20,10 @@ const useMovieSimilar = movie_id => {
 	useEffect(_ => {
 		if ( movie_id !== undefined && movie_id !== movies?.find_list_similar?.id )
 			dispatch(FIND_LIST_SIMILAR_ASYNC({movie_id})).then(result => {
-				valid = true
 				setReturnMovie({
 					config: apiConfiguration,
 					movie: result.result,
-					valid,
+					valid: true,
 				})
 			})
 	}, [movie_id])
