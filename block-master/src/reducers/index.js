@@ -32,7 +32,9 @@ export const {
   FIND_MOVIE_LIST,
   FIND_LIST_PROVIDERS,
   FIND_LIST_SIMILAR,
+  FIND_LIST_RECOMENDED,
   FIND_LIST_CREDIT,
+  FIND_LIST_REVIEW,
   FIND_LIST_VIDEO,
   REMOVE_MOVIES,
   SEARCH_MOVIE,
@@ -43,9 +45,9 @@ export const {
 export const ADD_MOVIES_ASYNC = (props = {}) => (dispatch) => {
   props = buildPropsHelper({
     ...props,
-    localStoreName: props?.localStoreName ?? 'movie',
-    api: props?.api ?? 'discover',
-    apiMethod: props?.apiMethod ?? discoverMethods.getMovie,
+    localStoreName: 'movie',
+    api: 'discover',
+    apiMethod: discoverMethods.getMovie,
   })
   const buildProps = {
     props,
@@ -73,9 +75,9 @@ export const SET_FILTER_ASYNC = (props = {}) => (dispatch) => {
 export const SEARCH_MOVIES_ASYNC = (props = {}) => (dispatch) => {
   props = buildPropsHelper({
     ...props,
-    localStoreName: props?.localStoreName ?? 'movie',
-    api: props?.api ?? 'search',
-    apiMethod: props?.apiMethod ?? searchMethods.getMovie,
+    localStoreName: 'movie',
+    api: 'search',
+    apiMethod: searchMethods.getMovies,
   })
   const buildProps = {
     props,
@@ -88,10 +90,10 @@ export const SEARCH_MOVIES_ASYNC = (props = {}) => (dispatch) => {
 export const FIND_MOVIE_SLIDER_ASYNC = (props = {}) => (dispatch) => {
   props = buildPropsHelper({
     ...props,
-    localStoreName: props?.localStoreName ?? 'movie',
-    localStoreIndex: props?.localStoreIndex ?? 'find_slider',
-    api: props?.api ?? 'movies',
-    apiMethod: props?.apiMethod ?? moviesMethods.getMovie,
+    localStoreName: 'movie',
+    localStoreIndex: 'find_slider',
+    api: 'movies',
+    apiMethod: moviesMethods.getMovie,
   })
   const buildProps = {
     props,
@@ -120,10 +122,10 @@ export const FIND_MOVIE_ASYNC = (props = {}) => (dispatch) => {
 export const FIND_MOVIE_LIST_ASYNC = (props = {}) => (dispatch) => {
   props = buildPropsHelper({
     ...props,
-    localStoreName: props?.localStoreName ?? 'movie',
-    localStoreIndex: props?.localStoreIndex ?? 'find_list',
-    api: props?.api ?? 'movies',
-    apiMethod: props?.apiMethod ?? moviesMethods.getMovie,
+    localStoreName: 'movie',
+    localStoreIndex: 'find_list',
+    api: 'movies',
+    apiMethod: moviesMethods.getMovie,
   })
   const buildProps = {
     props,
@@ -136,10 +138,10 @@ export const FIND_MOVIE_LIST_ASYNC = (props = {}) => (dispatch) => {
 export const FIND_LIST_PROVIDERS_ASYNC = (props = {}) => (dispatch) => {
   props = buildPropsHelper({
     ...props,
-    localStoreName: props?.localStoreName ?? 'movie',
-    localStoreIndex: props?.localStoreIndex ?? 'find_list_providers',
-    api: props?.api ?? 'movies',
-    apiMethod: props?.apiMethod ?? moviesMethods.getWatchProviders,
+    localStoreName: 'movie',
+    localStoreIndex: 'find_list_providers',
+    api: 'movies',
+    apiMethod: moviesMethods.getWatchProviders,
   })
   const buildProps = {
     props,
@@ -152,10 +154,10 @@ export const FIND_LIST_PROVIDERS_ASYNC = (props = {}) => (dispatch) => {
 export const FIND_LIST_SIMILAR_ASYNC = (props = {}) => (dispatch) => {
   props = buildPropsHelper({
     ...props,
-    localStoreName: props?.localStoreName ?? 'movie',
-    localStoreIndex: props?.localStoreIndex ?? 'find_list_similar',
-    api: props?.api ?? 'movies',
-    apiMethod: props?.apiMethod ?? moviesMethods.getSimilarMovies,
+    localStoreName: 'movie',
+    localStoreIndex: 'find_list_similar',
+    api: 'movies',
+    apiMethod: moviesMethods.getSimilarMovies,
   })
   const buildProps = {
     props,
@@ -165,13 +167,29 @@ export const FIND_LIST_SIMILAR_ASYNC = (props = {}) => (dispatch) => {
   }
   return buildPopulateCallbackProps(buildProps)
 }
+export const FIND_LIST_RECOMENDED_ASYNC = (props = {}) => (dispatch) => {
+  props = buildPropsHelper({
+    ...props,
+    localStoreName: 'movie',
+    localStoreIndex: 'find_list_recomended',
+    api: 'movies',
+    apiMethod: moviesMethods.getRecomendations,
+  })
+  const buildProps = {
+    props,
+    dispatch,
+    callback: populate,
+    reduce_callback: FIND_LIST_RECOMENDED
+  }
+  return buildPopulateCallbackProps(buildProps)
+}
 export const FIND_LIST_CREDIT_ASYNC = (props = {}) => (dispatch) => {
   props = buildPropsHelper({
     ...props,
-    localStoreName: props?.localStoreName ?? 'movie',
-    localStoreIndex: props?.localStoreIndex ?? 'find_list_credit',
-    api: props?.api ?? 'movies',
-    apiMethod: props?.apiMethod ?? moviesMethods.getCredits,
+    localStoreName: 'movie',
+    localStoreIndex: 'find_list_credit',
+    api: 'movies',
+    apiMethod: moviesMethods.getCredits,
   })
   const buildProps = {
     props,
@@ -181,13 +199,29 @@ export const FIND_LIST_CREDIT_ASYNC = (props = {}) => (dispatch) => {
   }
   return buildPopulateCallbackProps(buildProps)
 }
+export const FIND_LIST_REVIEW_ASYNC = (props = {}) => (dispatch) => {
+  props = buildPropsHelper({
+    ...props,
+    localStoreName: 'movie',
+    localStoreIndex: 'find_list_review',
+    api: 'movies',
+    apiMethod: moviesMethods.getReviews,
+  })
+  const buildProps = {
+    props,
+    dispatch,
+    callback: populate,
+    reduce_callback: FIND_LIST_REVIEW
+  }
+  return buildPopulateCallbackProps(buildProps)
+}
 export const FIND_LIST_VIDEO_ASYNC = (props = {}) => (dispatch) => {
   props = buildPropsHelper({
     ...props,
-    localStoreName: props?.localStoreName ?? 'movie',
-    localStoreIndex: props?.localStoreIndex ?? 'find_list_videos',
-    api: props?.api ?? 'movies',
-    apiMethod: props?.apiMethod ?? moviesMethods.getVideos,
+    localStoreName: 'movie',
+    localStoreIndex: 'find_list_videos',
+    api: 'movies',
+    apiMethod: moviesMethods.getVideos,
   })
   const buildProps = {
     props,

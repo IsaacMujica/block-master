@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import { FIND_LIST_SIMILAR_ASYNC } from '../../reducers/index'
+import { FIND_LIST_RECOMENDED_ASYNC } from '../../reducers/index'
 
-const useMovieSimilar = movie_id => {
+const useMovieRecomended = movie_id => {
 	let movies					 = useSelector(state => state.movie)
 	let apiConfiguration = useSelector(state => state.apiConfiguration)
 	const dispatch			 = useDispatch()
 	let valid = !(
-		(movie_id === undefined || apiConfiguration?.config === undefined || movies?.find_list_similar === undefined)
-		|| movie_id !== movies?.find_list_similar?.id
+		(movie_id === undefined || apiConfiguration?.config === undefined || movies?.find_list_recomended === undefined)
+		|| movie_id !== movies?.find_list_recomended?.id
 	)
 
 	const [returnMovie, setReturnMovie] = useState({
 		config: apiConfiguration,
-		movie: movies?.find_list_similar,
+		movie: movies?.find_list_recomended,
 		valid,
 	})
 
 	useEffect(_ => {
-		if ( movie_id !== undefined && movie_id !== movies?.find_list_similar?.id )
-			dispatch(FIND_LIST_SIMILAR_ASYNC({movie_id})).then(result => {
+		if ( movie_id !== undefined && movie_id !== movies?.find_list_recomended?.id )
+			dispatch(FIND_LIST_RECOMENDED_ASYNC({movie_id})).then(result => {
 				valid = true
 				setReturnMovie({
 					config: apiConfiguration,
@@ -33,4 +33,4 @@ const useMovieSimilar = movie_id => {
 
 }
 
-export { useMovieSimilar }
+export { useMovieRecomended }

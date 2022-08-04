@@ -9,7 +9,9 @@ import {
   FIND_LIST_PROVIDERS,
   FIND_LIST_VIDEO,
   FIND_LIST_SIMILAR,
-  FIND_LIST_CREDIT
+  FIND_LIST_RECOMENDED,
+  FIND_LIST_CREDIT,
+  FIND_LIST_REVIEW
 } from '../../actions/reducer/movie'
 import localStore from '../../services/localstorage'
 
@@ -25,7 +27,9 @@ const movieSlice = {
     find_list: initialState,
     find_list_providers: initialState,
     find_list_similar: initialState,
+    find_list_recomended: initialState,
     find_list_credit: initialState,
+    find_list_review: initialState,
     find_list_video: initialState,
   },
   reducers: {
@@ -61,8 +65,16 @@ const movieSlice = {
       state.find_list_similar = {...action.payload}
       //console.info(action.payload)
     },
+    [FIND_LIST_RECOMENDED]: (state, action) => {
+      state.find_list_recomended = {...action.payload}
+      //console.info(action.payload)
+    },
     [FIND_LIST_CREDIT]: (state, action) => {
       state.find_list_credit = {...action.payload}
+      //console.info(action.payload)
+    },
+    [FIND_LIST_REVIEW]: (state, action) => {
+      state.find_list_review = {...action.payload}
       //console.info(action.payload)
     },
     [FIND_LIST_VIDEO]: (state, action) => {

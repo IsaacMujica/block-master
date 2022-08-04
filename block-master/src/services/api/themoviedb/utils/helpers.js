@@ -7,6 +7,10 @@ export const formatParamsToString = params => {
 }
 
 export const callToApi = async ({callback, self, props = {}}) => {
+	if (!(callback in self)) {
+		console.info(callback, self)
+		return
+	}
 	const response = await fetch(`${self[callback]()}`, {...props})
 	const data     = await response.json()
 	return data

@@ -150,8 +150,17 @@ button {
 .justify-content-center {
   justify-content: center;
 }
+.align-items-baseline {
+  align-items: baseline;
+}
 .align-items-center {
   align-items: center;
+}
+.align-items-end {
+  align-items: flex-end;
+}
+.align-self-end {
+  align-self: flex-end;
 }
 .aligned-flexible {
   display: flex;
@@ -199,6 +208,18 @@ button {
 .p-1 {
   padding: 1rem;
 }
+.pt-0 {
+  padding-top: 0
+}
+.pr-0 {
+  padding-right: 0
+}
+.pb-0 {
+  padding-bottom: 0
+}
+.pl-0 {
+  padding-left: 0
+}
 .pt-1 {
   padding-top: 1rem;
 }
@@ -216,6 +237,12 @@ button {
 
 .text-center {
   text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
 }
 .text-justify {
   text-align: justify;

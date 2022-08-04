@@ -18,6 +18,7 @@ export function movies(props = {}, language = 'en-US', append_to_response = '') 
 	this[moviesMethods.getCredits]           = _ => `${fullPath}/${mainPath}/${movie_id}/credits?${formatParamsToString(requiredParams)}&${formatParamsToString(optionalParams)}`
 	this[moviesMethods.getPopular]           = _ => `${fullPath}/${mainPath}/popular?${formatParamsToString(requiredParams)}&${formatParamsToString(optionalParams)}`
 	this[moviesMethods.getReviews]           = _ => `${fullPath}/${mainPath}/${movie_id}/reviews?${formatParamsToString(requiredParams)}&${formatParamsToString(optionalParams)}`
+	this[moviesMethods.getRecomendations]    = _ => `${fullPath}/${mainPath}/${movie_id}/recommendations?${formatParamsToString(requiredParams)}&${formatParamsToString(optionalParams)}`
 	this[moviesMethods.getSimilarMovies]     = _ => `${fullPath}/${mainPath}/${movie_id}/similar?${formatParamsToString(requiredParams)}&${formatParamsToString(optionalParams)}`
 	this[moviesMethods.getTopRated]          = _ => `${fullPath}/${mainPath}/top_rated?${formatParamsToString(requiredParams)}&${formatParamsToString(optionalParams)}`
 	this[moviesMethods.getUpcoming]          = _ => `${fullPath}/${mainPath}/upcoming?${formatParamsToString(requiredParams)}&${formatParamsToString(optionalParams)}`

@@ -13,7 +13,7 @@ export default function MovieSimilar({movie, setMovie}) {
 
 	return (
 		<div className="movie-similar-container">
-			<h4 className="my-1">Películas similares</h4>
+			<h4 className="my-1">Similares</h4>
 			<div className="movie-similar-content">
 				{
 				hookMovieSimilar.movie.results.map((movie, key) => {

@@ -201,12 +201,12 @@
 	height: fit-content;
 	max-height: 290px;
 }
-.movie-credit-container .movie-credit-content > .credit-row {
+.movie-credit-container .movie-credit-content .credit-row {
 	display: flex;
 	flex-direction: row;
 	overflow-x: auto;
 }
-.movie-credit-container .movie-credit-content > .credit-row .cast {
+.movie-credit-container .movie-credit-content .credit-row .cast {
 	flex: 0 0 auto;
 	width: auto;
 }
@@ -225,7 +225,27 @@
 	display: flex;
 	font: var(--body4-regular);
 }
-.character-name > * {
+/*.character-name > * {
 	margin: 0;
+	font: var(--body3-regular);
+}*/
+
+.movie-review-container {
+	border-top: 1px solid var(--white);
+	border-bottom: 1px solid var(--white);
+}
+.movie-review-content {
+	border-bottom: 1px solid rgba(255,255,255, 0.7)
+}
+.movie-review-content:last-child {
+	border-bottom: none
+}
+.review-content {
+	text-indent: 1rem;
+}
+.review-content::first-letter {
+	text-transform: uppercase
+}
+.review-date {
 	font: var(--body3-regular);
 }

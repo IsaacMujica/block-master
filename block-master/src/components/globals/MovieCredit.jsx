@@ -21,9 +21,9 @@ const builder = ({type = 'cast', title = 'Reparto', base_path, credits, Componen
 			{
 				Object.keys(__departments).map( (department, key) => {
 					return (
-						<>
+						<div key={key}>
 						<h5 className="mb-0 mt-1">{__departments[department]}</h5>
-						<div key={key} className="credit-row pb-1">
+						<div className="credit-row pb-1">
 							{
 								__people[department].map( (credit, key) => {
 									return (
@@ -36,7 +36,7 @@ const builder = ({type = 'cast', title = 'Reparto', base_path, credits, Componen
 								})
 							}
 						</div>
-						</>
+						</div>
 					)
 				})
 			}

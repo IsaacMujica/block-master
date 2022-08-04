@@ -31,6 +31,7 @@ const moviesMethods = {
 	getCredits: 'getCredits',
 	getPopular: 'getPopular',
 	getReviews: 'getReviews',
+	getRecomendations: 'getRecomendations',
 	getSimilarMovies: 'getSimilarMovies',
 	getTopRated: 'getTopRated',
 	getUpcoming: 'getUpcoming',

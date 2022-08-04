@@ -12,7 +12,7 @@ export default function Cast({ base_path, credit }) {
 					<img src={iconBrokenImage} alt="" className="cast-poster img-fluid no-casts-poster" /> :
 					<img src={`${base_path}/${profile_path}`} alt="" className="cast-poster img-fluid" />
 				}
-				<p className="character-name"><h6>{original_name}</h6></p>
+				<h6 className="character-name">{original_name}</h6>
 				<p className="character-name">{character}</p>
 			</div>
 		</div>
