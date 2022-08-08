@@ -137,12 +137,12 @@
 }
 .movieInfo-img {
 	min-width: 250px;
-	max-height: auto;
+	margin: 0 auto;
+	text-align: center;
 	transition: all .6s ease-in-out;
 }
-.movieInfo-img.transform {
-	transform: matrix(0.71, -0.41, 1.22, 0.71, 0, 0);
-	max-height: 264px;
+.movieInfo-img img {
+	max-height: 200px;
 }
 .watch-body {
   padding-top: 2rem;
@@ -218,6 +218,10 @@
 	margin: 0;
 	display: flex;
 	font: var(--body4-regular);
+	max-width: 120px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .movie-review-container {

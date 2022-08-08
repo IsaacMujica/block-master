@@ -1,11 +1,13 @@
 import { useRef, useEffect } from 'react'
-import { IconStar } from '../icons'
+//import { IconStar } from '../icons'
+import iconBrokenImage from '../../icons/broken-image.svg'
+import Image from './Image'
 
 export default function MovieInfo ({id, movie, config}) {
 	const content = useRef(null)
 	const image   = useRef(null)
 	const rate    = useRef(null)
-	const poster_path = `${config.images.secure_base_url}${config.images.poster_sizes[2]}/${movie.poster_path}`
+	const poster_path = !movie?.poster_path ? null : `${config.images.secure_base_url}${config.images.poster_sizes[2]}${movie.poster_path}`
 
   let durationTime  = new Date(movie.runtime * 60 * 1000)
   durationTime      = `${durationTime.getUTCHours()}h ${durationTime.getMinutes()}m`
@@ -38,7 +40,10 @@ export default function MovieInfo ({id, movie, config}) {
     <div id={id} className="movieInfo-content row watch-body mb-1">
       <div className="col">
         <div ref={content} className="movieInfo-content center-fit-content">
-          <img ref={image} className="movieInfo-img" src={poster_path} alt={movie.title} title={movie.title} />
+          <div ref={image} className="movieInfo-img-content movieInfo-img">
+            <Image src={poster_path} srcFail={iconBrokenImage} name={movie.title} className="img-fluid" />
+          </div>
+          {/*<img className="movieInfo-img" src={poster_path} alt={movie.title} title={movie.title} />*/}
 					<div ref={rate} className="movie-rate">
 						<div className="rate-value">{Number(movie.vote_average).toPrecision(2)}</div>
 					</div>

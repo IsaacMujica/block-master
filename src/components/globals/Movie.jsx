@@ -1,8 +1,10 @@
 import { IconStar } from '../icons'
 import iconBrokenImage from '../../icons/broken-image.svg'
+import Image from './Image'
 
 export default function Movie({ base_path, movie, setMovie, watchnowRef }) {
 	const { poster_path, title, vote_average } = {...movie}
+	const srcPath = !poster_path ? null : `${base_path}${poster_path}`
 
 	const handlerMovieClick = event => {
 		if (watchnowRef?.current) {
@@ -15,10 +17,7 @@ export default function Movie({ base_path, movie, setMovie, watchnowRef }) {
 	return (
 		<div className="movie" title={title}>
 			<div className="movie-content" onClick={ handlerMovieClick }>
-				{ poster_path === null ?
-					<img src={iconBrokenImage} alt="" className="movie-poster img-fluid no-movies-poster" /> :
-					<img src={`${base_path}/${poster_path}`} alt="" className="movie-poster img-fluid" />
-				}
+				<Image src={srcPath} srcFail={iconBrokenImage} name={title} className="movie-poster img-fluid" classNameFail="movie-poster img-fluid no-movies-poster" />
 				<div className="movie-rate">
 					<div className="rate-icon">
 						<IconStar />

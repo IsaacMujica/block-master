@@ -21,7 +21,7 @@ const builder_timer = (Component, timer = 5) => new Promise( resolve => setTimeo
 	})
 }*/
 
-const recursiveBuilder = async (currentComponent, allComponents, id = 0, resultedComponents = []) => {
+/*const recursiveBuilder = async (currentComponent, allComponents, id = 0, resultedComponents = []) => {
 	return await builder_timer(currentComponent, 2).then( resultComponent => {
 		resultedComponents.push(resultComponent)
 		id++
@@ -29,7 +29,7 @@ const recursiveBuilder = async (currentComponent, allComponents, id = 0, resulte
 			return recursiveBuilder(allComponents[id], allComponents, id, resultedComponents)
 		return resultedComponents
 	})
-}
+}*/
 
 const builder_order = (movie, setMovie) => {
 	return [

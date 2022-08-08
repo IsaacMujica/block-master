@@ -4,6 +4,7 @@ import LoaderContainer from './globals/LoaderContainer'
 import Carousel from './slider/Carousel'
 import Actions from './slider/Actions'
 import WatchNow from './slider/WatchNow'
+import Image from './globals/Image'
 
 import { SET_SLIDERS_ASYNC, VALIDATE_DATA_ASYNC } from '../reducers/index'
 import { useSelector, useDispatch } from 'react-redux'
@@ -25,16 +26,15 @@ export default function Slider() {
 
 	if (sliders?.sliders !== undefined && sliders?.sliders?.results !== undefined && apiConfiguration?.config !== undefined) {
 		sliders.sliders.results.map(slider => {
-			let backdrop_path = `${apiConfiguration.config.images.secure_base_url}${apiConfiguration.config.images.backdrop_sizes[2]}/${slider.backdrop_path}`
+			let backdrop_path = `${apiConfiguration.config.images.secure_base_url}${apiConfiguration.config.images.backdrop_sizes[2]}${slider.backdrop_path}`
 			items.push(
-				<img
+				<Image
 					src={backdrop_path}
 					movie_id={slider.id}
 					className="img-fluid"
 					onDragStart={handleDragStart}
 					role="presentation"
-					title={slider.title}
-					alt={slider.title}
+					name={slider.title}
 				/>
 			)
 		})

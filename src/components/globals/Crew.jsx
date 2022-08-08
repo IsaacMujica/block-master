@@ -1,17 +1,15 @@
-import iconBrokenImage from '../../icons/broken-image.svg'
+import Image from './Image'
 
 export default function Crew({ base_path, credit }) {
 	const { profile_path, job, original_name } = {...credit}
+	const srcPath = !profile_path ? null : `${base_path}${profile_path}`
 
 	return (
 		<div className="cast" title={original_name}>
 			<div className="cast-content">
-				{ profile_path === null ?
-					<img src={iconBrokenImage} alt="" className="cast-poster img-fluid no-casts-poster" /> :
-					<img src={`${base_path}/${profile_path}`} alt="" className="cast-poster img-fluid" />
-				}
-				<h6 className="character-name">{original_name}</h6>
-				<p className="character-name">{job}</p>
+				<Image src={srcPath} name={original_name} className="cast-poster img-fluid" />
+				<h6 className="character-name" title={original_name}>{original_name}</h6>
+				<p className="character-name" title={job}>{job}</p>
 			</div>
 		</div>
 	)

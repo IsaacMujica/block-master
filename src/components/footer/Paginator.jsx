@@ -33,6 +33,16 @@ export default function Paginator({ observedElement }) {
 			pages = [1,'...',movies.movies.page-1,movies.movies.page,total_pages]
 		else if (rest === 0)
 			pages = [1,'...',movies.movies.page-2,movies.movies.page-1,total_pages]
+		if (total_pages <= 1)
+			pages = [1]
+		else if (total_pages === 2)
+			pages = [1,2]
+		else if (total_pages === 3)
+			pages = [1,2,3]
+		else if (total_pages === 4)
+			pages = [1,2,3,4]
+		else if (total_pages === 5)
+			pages = [1,2,3,4,5]
 	}
 
 	const handlerInfiniteScrollInput = event => {

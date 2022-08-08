@@ -111,6 +111,7 @@ button {
 .container {
   width: 100%;
   margin: 0 auto;
+  padding: 0 .5rem;
 }
 
 .position-relative {
@@ -249,4 +250,29 @@ button {
 .non-clickable {
   border: 0;
   cursor: auto;
+}
+
+.no-image {
+  color: var(--grey);
+  /*border: 1px solid var(--primary);*/
+  /*padding: 0 0.5rem;*/
+  border-radius: 10px;
+  position: relative;
+  width: 80px;
+  height: 120px;
+  margin: 0 auto .2rem
+}
+/*.no-image::after {
+  position: absolute;
+  top: 48%;
+  left: -27%;
+  transform: rotateZ(52deg);
+  content: '';
+  width: 150px;
+  height: 4px;
+  background-color: var(--primary);
+}*/
+.no-image > svg.cast-poster {
+  width: 60px;
+  height: 80px;
 }

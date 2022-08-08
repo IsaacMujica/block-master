@@ -4,7 +4,7 @@ import Dot from './Dot'
 import SliderInfo from './SliderInfo'
 
 import { SET_SLIDERINFOS } from '../../reducers/index'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 export default function Carousel({carouselRef, items, sliderTimer}) {
 	const dispatch  = useDispatch()

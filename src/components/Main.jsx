@@ -1,11 +1,13 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import MovieTitle from './main/MovieTitle'
 import MovieList from './main/MovieList'
+import LoaderContainer from './globals/LoaderContainer'
 
 import { SET_FILTER_ASYNC, VALIDATE_DATA_ASYNC } from '../reducers/index'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function Main() {
+	const [main, setMain] = useState(false)
 	let movies           = useSelector(state => state.movie)
 	let apiConfiguration = useSelector(state => state.apiConfiguration)
 	const dispatch       = useDispatch()
@@ -19,11 +21,21 @@ export default function Main() {
 	useEffect(() => {
 		if (apiConfiguration?.config === undefined)
 			dispatch(VALIDATE_DATA_ASYNC())
+		if (!main)
+			setTimeout(_ => {
+				setMain(true)
+			}, 500)
 	}, [])
 	return (
 		<main>
-			<MovieTitle title={title} />
-			<MovieList movies={movies} apiConfiguration={apiConfiguration} />
+      {
+      	!main ?
+      	<LoaderContainer text="Cargando películas" /> :
+      	<>
+	      	<MovieTitle title={title} />
+					<MovieList movies={movies} apiConfiguration={apiConfiguration} />
+      	</>
+      }
 		</main>
 	)
 }

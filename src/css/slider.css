@@ -3,9 +3,9 @@
 	max-height: 400px;
 }
 
-.alice-carousel .alice-carousel__stage-item * {
+/*.alice-carousel .alice-carousel__stage-item * {
 	width: 100%;
-}
+}*/
 
 .alice-carousel .slider-dot {
 	width: 12px !important;

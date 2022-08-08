@@ -48,3 +48,14 @@
 	border-color: var(--primary);
 	text-shadow: 0px 0px 10px rgba(254, 217, 65, 0.95);
 }
+
+.credits-container {
+	border-top: 1px solid rgba(255, 255, 254, .5);
+	padding: .5rem 0;
+}
+.credits-container a {
+	color: var(--white)
+}
+.credits-container a:active, .credits-container a:visited {
+	color: var(--grey)
+}

@@ -59,10 +59,10 @@ export default function MovieCredit({movie, setMovie}) {
 	return (
 		<div className="movie-credit-container">
 			<div className="row">
-				<div className="col-6 movie-credit-col">
+				<div className="col col-md-6 movie-credit-col">
 					{builder({base_path, credits:hookMovieCredit.movie, Component:Cast})}
 				</div>
-				<div className="col-6 movie-credit-col">
+				<div className="col col-md-6 movie-credit-col">
 					{builder({type:'crew',title:'Equipo',base_path, credits:hookMovieCredit.movie, Component:Crew})}
 				</div>
 			</div>
