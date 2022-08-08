@@ -5,6 +5,7 @@ import Carousel from './slider/Carousel'
 import Actions from './slider/Actions'
 import WatchNow from './slider/WatchNow'
 import Image from './globals/Image'
+import iconBrokenImage from '../icons/broken-image.svg'
 
 import { SET_SLIDERS_ASYNC, VALIDATE_DATA_ASYNC } from '../reducers/index'
 import { useSelector, useDispatch } from 'react-redux'
@@ -30,6 +31,7 @@ export default function Slider() {
 			items.push(
 				<Image
 					src={backdrop_path}
+					srcFail={iconBrokenImage}
 					movie_id={slider.id}
 					className="img-fluid"
 					onDragStart={handleDragStart}
